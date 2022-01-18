@@ -22,7 +22,7 @@ export const Container = styled.div`
       color: var(--text-body);
       border-radius: 0.25rem;
 
-      // Encontra o primeiro [td] e aplica a cor
+      // Encontra o primeiro [td] e aplica essa cor
       &:first-child {
         color: var(--text-title);
       }
