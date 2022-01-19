@@ -6,6 +6,9 @@ export const Container = styled.form`
     color: var(--text-title);
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   input {
