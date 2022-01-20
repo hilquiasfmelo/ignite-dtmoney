@@ -21,10 +21,12 @@ interface ITransactionsContextData {
   createTransaction: (transaction: TransactionInput) => void;
 }
 
+// Contexto de Transações sendo exportado
 export const TransactionsContext = createContext<ITransactionsContextData>(
   {} as ITransactionsContextData
 );
 
+// Componente do Contexto que envolverá toda a aplicação
 export function TransactionsProvider({ children }: ITransactionsProviderProps) {
   const [transactions, setTransactions] = useState<ITransactionProps[]>([]);
 
