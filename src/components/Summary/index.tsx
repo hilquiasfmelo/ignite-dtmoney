@@ -10,13 +10,15 @@ import totalImg from '../../assets/total.svg';
 export function Summary() {
   const { transactions } = useTransactions();
 
+  console.log(transactions);
+
   const summary = transactions.reduce((acc, transaction) => {
     if (transaction.type === 'deposit') {
-      acc.deposits += transaction.value;
-      acc.total += transaction.value
+      acc.deposits += Number(transaction.value);
+      acc.total += Number(transaction.value);
     } else {
-      acc.withdraws += transaction.value;
-      acc.total -= transaction.value
+      acc.withdraws += Number(transaction.value);
+      acc.total -= Number(transaction.value);
     }
 
     return acc;
@@ -25,6 +27,8 @@ export function Summary() {
     withdraws: 0,
     total: 0
   })
+
+  console.log(summary);
 
   return (
     <Container>

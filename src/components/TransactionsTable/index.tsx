@@ -1,4 +1,5 @@
 import { useTransactions } from '../../hooks/useTransactions';
+
 import { Container } from './styles';
 
 export function TranscationTable() {
@@ -22,27 +23,15 @@ export function TranscationTable() {
               <tr key={transaction.id}>
                 <td>{transaction.title}</td>
                 <td className={transaction.type}>
-                  {
-                    transaction.type === 'withdraw'
-                      ? <td className={transaction.type}>
-                        -{new Intl.NumberFormat('pt-BR', {
-                          style: 'currency',
-                          currency: 'BRL',
-                        }).format(transaction.value)}
-                      </td>
-                      :
-                      <td className={transaction.type}>
-                        {new Intl.NumberFormat('pt-BR', {
-                          style: 'currency',
-                          currency: 'BRL',
-                        }).format(transaction.value)}
-                      </td>
-                  }
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  }).format(transaction.value)}
                 </td>
                 <td>{transaction.category}</td>
                 <td>
                   {new Intl.DateTimeFormat('pt-BR').format(
-                    new Date(transaction.createdAt)
+                    new Date(transaction.created_at)
                   )}
                 </td>
               </tr>
