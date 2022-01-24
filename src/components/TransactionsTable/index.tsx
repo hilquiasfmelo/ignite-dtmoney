@@ -1,9 +1,11 @@
+import { FaTrashAlt } from 'react-icons/fa';
+
 import { useTransactions } from '../../hooks/useTransactions';
 
 import { Container } from './styles';
 
 export function TranscationTable() {
-  const { transactions } = useTransactions();
+  const { transactions, deleteTransaction } = useTransactions();
 
   return (
     <Container>
@@ -33,6 +35,11 @@ export function TranscationTable() {
                   {new Intl.DateTimeFormat('pt-BR').format(
                     new Date(transaction.created_at)
                   )}
+                </td>
+                <td>
+                  <button type='button' onClick={() => deleteTransaction(transaction.id)}>
+                    <FaTrashAlt fontSize={25} />
+                  </button>
                 </td>
               </tr>
             );
